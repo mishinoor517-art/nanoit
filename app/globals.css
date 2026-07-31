@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-white/10;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-base text-ink-light font-body antialiased;
+    /* Aurora-toned ambient background — keeps every section (About through
+       Footer) visually seamless with the Hero's navy/purple/blue/cyan palette. */
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(139, 92, 246, 0.16) 0%, transparent 40%),
+      radial-gradient(circle at 88% 12%, rgba(59, 130, 246, 0.14) 0%, transparent 42%),
+      radial-gradient(circle at 92% 68%, rgba(34, 211, 238, 0.10) 0%, transparent 42%),
+      radial-gradient(circle at 6% 78%, rgba(139, 92, 246, 0.12) 0%, transparent 42%),
+      radial-gradient(circle at 50% 100%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 50% 0%, rgba(5, 7, 15, 0) 0%, rgba(5, 7, 15, 0.6) 100%),
+      radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: auto, auto, auto, auto, auto, auto, 26px 26px;
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-aurora-purple-light/40 text-white;
+  }
+
+  :focus-visible {
+    outline: 2px solid #22D3EE;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.04] backdrop-blur-xl border border-white/10;
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl shadow-card transition-all duration-300;
+  }
+
+  .glow-border {
+    position: relative;
+  }
+
+  .glow-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(120deg, rgba(217,166,92,0.7), rgba(185,128,58,0.15) 40%, rgba(240,201,126,0.7));
+    background-size: 200% 200%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .glow-border:hover::before {
+    opacity: 1;
+    animation: border-sweep 3s linear infinite;
+  }
+
+  .gradient-text {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-mono uppercase tracking-[0.2em] text-ink-muted;
+  }
+
+  .btn-gradient {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full bg-brand-gradient px-7 py-3.5 font-semibold text-white shadow-glow transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 font-semibold text-ink-light backdrop-blur-md transition-all duration-300 hover:border-white/30 hover:bg-white/[0.07];
+  }
+
+  .section-pad {
+    @apply px-6 py-16 sm:px-10 lg:px-16 lg:py-24;
+  }
+
+  .container-max {
+    @apply mx-auto max-w-7xl;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-ink-light placeholder:text-ink-faint outline-none transition-colors duration-200 focus:border-violet-light/50 focus:bg-white/[0.06];
+  }
+
+  /* ---------------------------------------------------------------- */
+  /* Aurora components — scoped exclusively to Navbar.tsx & Hero.tsx.  */
+  /* These do not replace or alter any existing shared classes above. */
+  /* ---------------------------------------------------------------- */
+
+  .aurora-eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-aurora-cyan/25 bg-aurora-cyan/[0.06] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-aurora-cyan;
+  }
+
+  .aurora-gradient-text {
+    @apply bg-aurora-gradient-diag bg-clip-text text-transparent;
+  }
+
+  .aurora-btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full bg-aurora-gradient px-7 py-3.5 font-semibold text-white shadow-glow-aurora transition-all duration-300 hover:scale-[1.03] hover:shadow-glow-aurora-blue active:scale-[0.98];
+  }
+
+  .aurora-btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-7 py-3.5 font-semibold text-ink-light backdrop-blur-md transition-all duration-300 hover:border-aurora-purple-light/40 hover:bg-white/[0.08];
+  }
+
+  .aurora-glass-card {
+    @apply rounded-2xl border border-aurora-border bg-white/[0.05] shadow-aurora-card backdrop-blur-xl transition-all duration-300;
+  }
+
+  /* ---------------------------------------------------------------- */
+  /* Aurora system extensions — used across About, Services, Features, */
+  /* Portfolio, Process, Testimonials, Contact & Footer for a single   */
+  /* consistent premium design language site-wide.                     */
+  /* ---------------------------------------------------------------- */
+
+  .aurora-icon-badge {
+    @apply relative grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-aurora-gradient text-white shadow-glow-aurora transition-transform duration-300;
+  }
+
+  .aurora-input {
+    @apply w-full rounded-xl border border-aurora-border bg-white/[0.03] px-4 py-3 text-sm text-ink-light placeholder:text-ink-faint outline-none transition-colors duration-200 focus:border-aurora-purple-light/50 focus:bg-white/[0.06];
+  }
+
+  .aurora-divider {
+    @apply mx-auto h-px w-24 rounded-full bg-aurora-gradient-diag opacity-70;
+  }
+
+  .aurora-chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-aurora-border bg-white/[0.04] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted;
+  }
+
+  .aurora-hairline {
+    @apply border-aurora-border;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .mask-fade-x {
+    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+}
+
+/* Ripple effect for buttons */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple::after {
+  content: "";
+  position: absolute;
+  width: 0; height: 0;
+  border-radius: 100%;
+  background: rgba(255,255,255,0.35);
+  transform: translate(-50%, -50%);
+  top: var(--ripple-y, 50%);
+  left: var(--ripple-x, 50%);
+  opacity: 0;
+  transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+}
+.ripple:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 1;
+  transition: 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

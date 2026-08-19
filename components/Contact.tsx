@@ -7,10 +7,10 @@ import { serviceOptions } from "@/lib/data";
 import Reveal from "./Reveal";
 
 const contactInfo = [
-  { icon: Phone, label: "Phone Number", value: "+92 300 1234567" },
-  { icon: Mail, label: "Email Address", value: "hello@promofusion.agency" },
-  { icon: MapPin, label: "Office Address", value: "Suite 402, Gulberg III, Lahore, Pakistan" },
-  { icon: Clock, label: "Working Hours", value: "Mon – Sat, 9:00 AM – 7:00 PM" },
+  { icon: Phone, label: "Phone Number", value: "+92 3024800571" },
+  { icon: Mail, label: "Email Address", value: "Waqaryounis845@gmail.com" },
+  { icon: MapPin, label: "Office Address", value: "Mall of sargodha 4th floor office 40, Sargodha, Pakistan" },
+  { icon: Clock, label: "Working Hours", value: "Mon – Sat, 24 hour" },
 ];
 
 export default function Contact() {
@@ -122,7 +122,7 @@ export default function Contact() {
                     name="name"
                     required
                     type="text"
-                    placeholder="John Carter"
+                    placeholder="Promo Fusion"
                     className="aurora-input"
                   />
                 </Field>
@@ -132,7 +132,7 @@ export default function Contact() {
                     name="email"
                     required
                     type="email"
-                    placeholder="john@company.com"
+                    placeholder="Waqaryounis845@gmail.com"
                     className="aurora-input"
                   />
                 </Field>
@@ -144,7 +144,7 @@ export default function Contact() {
                     id="phone"
                     name="phone"
                     type="tel"
-                    placeholder="+1 234 567 890"
+                    placeholder="+923024800571"
                     className="aurora-input"
                   />
                 </Field>

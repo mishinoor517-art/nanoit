@@ -115,13 +115,13 @@ export default function Footer() {
             </h4>
             <ul className="mt-5 space-y-3 text-sm text-ink-muted">
               <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-aurora-cyan" /> +92 300 1234567
+                <Phone className="h-4 w-4 text-aurora-cyan" /> +92 302 4800571
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-aurora-cyan" /> hello@promofusion.agency
+                <Mail className="h-4 w-4 text-aurora-cyan" /> Waqaryounis845@gmail.com
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-aurora-cyan" /> Lahore, Pakistan
+                <MapPin className="h-4 w-4 text-aurora-cyan" /> Sargodha, Pakistan
               </li>
             </ul>
 

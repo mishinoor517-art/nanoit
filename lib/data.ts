@@ -121,7 +121,7 @@ export const team: TeamMember[] = [
   },
   {
     name: "Waqar Younis",
-    position: "AI Video Generation Expert",
+    position: "CEO & Founder",
     photo: "/team/member-5.jpg",
     linkedin: "#",
     facebook: "#",
@@ -146,7 +146,15 @@ export const team: TeamMember[] = [
   {
     name: "Zarnab Awan",
     position: "General Manager",
-    photo: "/team/member-7.png",
+    photo: "/team/member-7.jpeg",
+    linkedin: "#",
+    facebook: "#",
+    email: "mailto:zarnab@promofusion.agency",
+  },
+    {
+    name: "Misbah Gull",
+    position: "Ai video editor",
+    photo: "/team/member-8.png",
     linkedin: "#",
     facebook: "#",
     email: "mailto:zarnab@promofusion.agency",
